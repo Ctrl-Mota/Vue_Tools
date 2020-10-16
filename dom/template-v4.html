@@ -1,9 +1,9 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-  <p>{{title}}</p>
+  <p v-once >{{title}}</p>
   <p>{{ saudacao() }}</p>
-  <a v-bind:href="google_url" v-bind:... = “...” >{{google_name}}</a>
+  <a v-bind:href="google_url">{{google_name}}</a>
 </div>
 
 <script>
@@ -18,6 +18,7 @@
     },
     methods:{
       saudacao(){
+        this.title = "bom dia!!";
         return this.title
       }
     }
