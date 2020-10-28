@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+<p>{{contador}}</p>
+<button v-on:click="somar(4, $event)">somar 1</button>
+<p v-on:mousemove="attXY">Mouse x:{{x}} e y:{{y}}
+  <span v-on:mousemove.stop="">[parar aqui]</span>
+</p>
+<a v-on:click.prevent="naonavegar" href="http://google.com">Google</a>
+<hr>
+<input type="text" v-on:keyup.ctrl.z="callalert">
+</div>
+
+<script>
+
+  new Vue({
+
+    el: '#app',
+    data: {
+     contador:0,
+     x: 0,
+     y: 0
+    },
+    methods:{
+      somar(param, event){
+        console.log(param, event)
+        this.contador+= param
+      },
+      attXY(e){
+        this.x = e.clientX
+        this.y = e.clientY
+      },
+      naonavegar(e){
+        console.log(e)
+      },
+      callalert(e){
+        console.log(e)
+        alert(e.target.value)
+      }
+    }
+  })
+</script>
