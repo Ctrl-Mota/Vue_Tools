@@ -28,12 +28,13 @@
 
   <div id="app">
     <div class="caixas">
-      <div class="demo" :class="estilo1" @click="aplicarC1 = !aplicarC1"></div>
-      <div class="demo"></div>
+      <div class="demo" :class="[classeCss, {girar: aplicarGirar}]" @click="aplicarC1 = !aplicarC1"></div>
+      <div class="demo" :class="[classeCss, {girar: aplicarGirar}]"></div>
       <div class="demo" :class="[classeCss, {girar: aplicarGirar}]"></div>
     </div>
     <hr>
     <input type="text" v-model="classeCss">
+    <button @click="aplicarGirar = !aplicarGirar">Jequiti</button>
   </div>
 <script>
 
@@ -44,6 +45,13 @@
      aplicarC1: false,
      classeCss: 'c1',
      aplicarGirar: true
+    },
+    watch:{
+      aplicarGirar(){
+        setInterval(() => {
+          this.aplicarGirar = !aplicarGirar
+        },500)
+      }
     },
     computed:{
       estilo1(){
