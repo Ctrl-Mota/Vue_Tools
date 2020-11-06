@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ataque o monstro</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="panel">
+        <div class="scores">
+          <div class="score">
+            <h1>Jogador</h1>
+            <div class="life-bar">
+              <div class="life" :style="{width: player_life}"></div>
+              <span class="result" v-html="player_life"></span>
+            </div>
+          </div>
+          <div class="score">
+            <h1>Monstro</h1>
+            <div class="life-bar">
+              <div class="life" :style="{width: monster_life}"></div>
+              <span class="result" v-html="monster_life"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="buttons">
+          <!-- <button class="btn new-game">Novo Jogo</button> -->
+          <button class="btn attack" @click="hit">Ataque</button>
+          <button class="btn especial-attack" @click="special_hit">Ataque especial</button>
+          <button class="btn heal" @click="heal">Curar</button>
+          <button class="btn give-up" @click="initGame">Desistir</button>
+        </div>
+      </div>
+      <div class="panel">
+       <div class="logs">
+         <ul class="player">
+           <li>jogador</li>
+         </ul>
+       </div>
+       <div class="logs">
+        <ul class="monster">
+          <li>monster</li>
+        </ul>
+       </div>
+      </div>
+    </div>
+  <script src="app.js"></script>
+  </body>
+</html>
